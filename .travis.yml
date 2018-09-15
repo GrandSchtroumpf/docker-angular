@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t grandschtroumpf/docker-angular -f Dockerfile.dev
+
+script:
+  - docker run grandschtroumpf/docker-angular npm run test --watch=false
